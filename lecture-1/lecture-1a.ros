@@ -1,0 +1,62 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+(progn ;;init forms
+  (ros:ensure-asdf)
+  #+quicklisp(ql:quickload '() :silent t)
+  )
+
+(defpackage :ros.script.lecture-1a.3890810454
+  (:use :cl))
+(in-package :ros.script.lecture-1a.3890810454)
+
+;;; to fend an approximatin to √x
+;; - make a guess guess
+;; - improve the guess by averaging g and x/g
+;; - keep improving the guess until it is good enough
+;; - use 1 as an initial guess
+
+;; you can call with (square1 10) => 100
+(defun square1 (x)
+  (* x x))
+
+;; you can call with (funcall (square2) 10) => 100
+(defun square2 ()
+  (lambda (x) (* x x)))
+
+;; for HOF mean-square procedure
+(defun average (x y)
+  (/ (+ x y) 2))
+
+;; it will use average for callculation
+(defun mean-square (x y)
+  (average (square1 x)
+	   (square1 y)))
+
+(defun abss (x)
+  (cond ((< x 0) (- x))
+	((= x 0) 0)
+	((> x 0) x)))
+
+(defun improve (guess x)
+  (average guess (/ x guess)))
+
+(defun good-enoughp (guess x)
+  (< (abss (- (square1 guess) x))
+     .001))
+
+(defun try (guess x)
+  (if (good-enoughp guess x)
+      guess
+      (try (improve guess x) x)))
+
+(defun sqrts (x)
+  (try 1 y))
+
+(defun main (&rest argv)
+  (declare (ignorable argv))
+  (sqrts 10.0))
+
+;;; vim: set ft=lisp lisp:

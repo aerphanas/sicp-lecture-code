@@ -1,0 +1,51 @@
+* Computer Science
+** Techniques for controlling complexity
+- Black-Box Abstraction; 36 -> (function sqrt x) -> 6
+  - Primitive objects
+    - Primitive Procedures
+    - Primitive Data
+  - Means of Combination
+    - Procedure Composition
+    - Construction of Compound Data
+  - Means of Abstraction
+    - Procedure Definition
+    - Simple Data Abstraction
+  - Capturing Common Patterns
+    - High-Order Procedures
+    - Data As Procedures
+- Conventional Interfaces
+  - Generic Operations
+  - Large-Scale Structure and Modularity
+  - Object-Oriented Programming
+  - Operations on Aggregates
+- Metalinguistic Abstraction
+
+** Declarative Knowledge "What is True"
+
+√x is the y such that y² = x and y ≥ 0
+
+** Imperative Knowledge "How to"
+
+to find an approximation to √x
+- make a guess g
+- improve the guess by averaging g and x/g
+- keep improving the guess until it is good enough
+- use 1 as an initial guess
+
+to finding a fixed point of a function f
+(that is, a value y such taht f(y) = y)
+- start with a guess for y
+- eep appliying f over and over until the result doesn't change very much
+
+** Common Lisp Summarize
+
+|                      | Procedure              | Data     |
+|----------------------+------------------------+----------|
+| Primitive Elements   | + * < =                | 23 1.738 |
+| Means of combination | () composition cond if |          |
+| Means of Abstraction | defun                  |          |
+
+
+
+* instructor
+- HAROLD ABELSON Assoc. Prof. -EE & CS M.I.T
