@@ -1,0 +1,28 @@
+* Substitution Rule
+- to evaluate an application
+  - evaluate the operator to get procedure
+  - evaluate the operands to get arguments
+  - apply the procedure to the arguments
+    - copy the body of the procedure
+      - substituting the arguments supplied for the formal parameter of the procedure
+    - evaluate the resulting new body
+- to evaluate an if expression
+  - evaluate the predicate expression
+    - if it yields true
+      - evaluate the consequent expression
+    - oterwise
+      - evaluate the alternative expression
+* Peano Arithmetic
+#+begin_src scheme
+  (define (+ x y)
+    (if (= x 0)
+      y
+      (+ (-1+ x) (1+ y))))
+#+end_src
+
+#+begin_src scheme
+  (define (+ x y)
+    (if (= x 0)
+	y
+	(1+ (+ (-1+ x) y))))
+#+end_src
