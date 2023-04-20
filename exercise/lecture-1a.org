@@ -71,7 +71,67 @@ then he evaluates the expression
   (test 0 (p))
 #+end_src
 
-What behavior will Ben observe with an interpreter
+gWhat behavior will Ben observe with an interpreter
 that uses applicative-order evaluation? What behavior
 will he observe with an interpreter that uses
 normal-order evaluation? Explain your answer.
+
+* Exercise 1.6:
+Alyssa P. Hacker doesn’t see why if needs to
+be provided as a special form. “Why can’t I just deﬁne it as
+an ordinary procedure in terms of cond?” she asks. Alyssa’s
+friend Eva Lu Ator claims this can indeed be done, and she
+deﬁnes a new version of if:
+
+#+begin_src scheme
+  (define (new-if predicate then-clause else-clause)
+    (cond (predicate then-clause)
+          (else else-clause)))
+#+end_src
+
+Eva demonstrates the program for Alyssa:
+
+#+begin_src scheme
+  (new-if (= 2 3) 0 5) ;; => 5
+  (new-if (= 1 1) 0 5) ;; => 0
+#+end_src
+
+Delighted, Alyssa uses new-if to rewrite the square-root
+program:
+
+#+begin_src scheme
+  (define (sqrt-iter guess x)
+    (new-if (good-enough? guess x)
+	    guess
+	    (sqrt-iter (improve guess x) x)))
+#+end_src
+
+What happens when Alyssa attempts to use this to compute
+square roots? Explain.
+
+* Exercise 1.7:
+The good-enough? test used in computing
+square roots will not be very eﬀective for ﬁnding the square
+roots of very small numbers. Also, in real computers, arith-
+metic operations are almost always performed with lim-
+ited precision. this makes our test inadequate for very large
+numbers. Explain these statements, with examples showing
+how the test fails for small and large numbers. An alterna-
+tive strategy for implementing good-enough? is to watch
+how guess changes from one iteration to the next and to
+stop when the change is a very small fraction of the guess.
+Design a square-root procedure that uses this kind of end
+test. Does this work better for small and large numbers?
+
+* Exercise 1.8:
+Newton’s method for cube roots is based on
+the fact that if y is an approximation to the cube root of x,
+then a better approximation is given by the value
+
+\begin{equation}
+\frac{ x/y^2 + 2y }
+     { 3 }
+\end{equation}
+
+Use this formula to implement a cube-root procedure anal-
+ogous to the square-root procedure.
