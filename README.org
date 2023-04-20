@@ -1,6 +1,6 @@
 * SICP (Structure and Interpretation of Computer Programs)
 
-[[https://raw.githubusercontent.com/aerphanas/sicp-lecture-code/main/images/MIT%20OpenCourseWare%20-%20Lecture%201B%20Procedures%20and%20Processes%3B%20Substitution%20Model%20%5BV_7mmwpgJHU%20-%201024x752%20-%200m08s%5D.png]]
+[[file:images/MIT OpenCourseWare - Lecture 1B Procedures and Processes; Substitution Model \[V_7mmwpgJHU - 1024x752 - 0m08s\].png]]
 
 * Link
 - [[https://www.youtube.com/playlist?list=PLE18841CABEA24090][MIT 6.001 Structure and Interpretation, 1986]]
