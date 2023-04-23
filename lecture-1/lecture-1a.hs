@@ -1,8 +1,5 @@
 module Main where
 
-import GHC.Float (int2Float, float2Int)
-
-
 squarel :: Num a => a -> a
 squarel x = x * x
 
