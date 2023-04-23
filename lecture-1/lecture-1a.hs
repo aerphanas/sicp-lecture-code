@@ -14,7 +14,7 @@ meanSquarel x y = averagel (squarel x) (squarel y)
 
 absl :: (Ord t, Num t) => t -> t
 absl n
-    | n < 0     = absl (-n)
+    | n < 0     = -n
     | otherwise = n
 
 improvel :: Fractional a => a -> a -> a
@@ -32,4 +32,4 @@ sqrtl :: Double -> Double
 sqrtl = tryl 1
 
 main :: IO ()
-main = print $ sqrtl 10
+main = (print . sqrtl) 10
